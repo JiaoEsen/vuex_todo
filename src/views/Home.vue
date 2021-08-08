@@ -69,7 +69,7 @@ export default {
       this.$store.commit("todo/INPUT_CHANGE", e);
     },
     addItem() {
-      if (this.$store.state.inputVal === "") {
+      if (this.inputVal === "") {
         this.$message({
           message: "内容不能为空",
           type: "warning",
