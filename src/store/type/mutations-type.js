@@ -1,0 +1,17 @@
+const INPUT_CHANGE = 'INPUT_CHANGE';
+const INIT_LIST = 'INIT_LIST';
+const ADD_ITEM = 'ADD_ITEM';
+const DEL_ITEM = 'DEL_ITEM';
+const IS_DONE = 'IS_DONE';
+const CHANGE_OPTION_KEY = 'CHANGE_OPTION_KEY';
+const CLEAR_TODO = 'CLEAR_TODO';
+
+export {
+    INPUT_CHANGE,
+    INIT_LIST,
+    ADD_ITEM,
+    DEL_ITEM,
+    IS_DONE,
+    CHANGE_OPTION_KEY,
+    CLEAR_TODO
+}
