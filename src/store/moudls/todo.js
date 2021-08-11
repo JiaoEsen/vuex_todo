@@ -1,3 +1,6 @@
+// import axios from "axios";
+// import axios from "axios";
+import axios from "axios";
 import storage from "../../assets/js/localstorage";
 import {
     INPUT_CHANGE,
@@ -6,7 +9,8 @@ import {
     DEL_ITEM,
     IS_DONE,
     CHANGE_OPTION_KEY,
-    CLEAR_TODO
+    CLEAR_TODO,
+    GET_LIST
 } from "../type/mutations-type.js";
 
 const state = {
@@ -36,6 +40,10 @@ const getters = {
 };
 
 const mutations = {
+    // [INIT_LIST] (state, val) {
+    //     console.log(state, val);
+    //     axios.get();
+    // },
     [INPUT_CHANGE](state, val) {
         state.inputVal = val;
     },
@@ -49,7 +57,6 @@ const mutations = {
             text: text,
             done: false
         };
-        console.log(state);
         state.list.push(obj);
         state.todoId += 1;
         state.inputVal = '';
@@ -69,13 +76,33 @@ const mutations = {
     },
     [CLEAR_TODO](state) {
         state.list = []
+    },
+    [GET_LIST](){
+
     }
 };
+
+const actions  = {
+    // console.log(axios);
+    getList({ commit }) {
+        console.log(1);
+        axios.get('http://127.0.0.1:8888/list').then((res) => {
+            console.log(res);
+        });
+        commit('INIT_LIST', []);
+    }
+}
 
 
 export default {
     namespaced: true,
     state,
     getters,
-    mutations
+    mutations,
+    actions
 }
+
+/* 
+    地三鲜盖饭
+    红烧鸡块盖饭
+*/

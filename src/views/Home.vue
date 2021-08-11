@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import storage from "../assets/js/localstorage.js";
 export default {
   data() {
@@ -63,6 +63,10 @@ export default {
         storage.set("vuex_todo", this.list);
       },
     },
+  },
+  created() {
+    console.log(this.$store);
+    // getList();
   },
   methods: {
     inputChange(e) {
@@ -100,6 +104,9 @@ export default {
       doneLength: "doneLength",
       fliterListD: "fliterListD",
     }),
+    ...mapActions("todo", {
+      getList: "getList"
+    })
   },
 };
 </script>
